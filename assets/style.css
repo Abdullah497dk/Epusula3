@@ -18,7 +18,7 @@ html, body {
 
 /* Konteyner */
 .container {
-  max-width: 1100px;
+  max-width: 1300px;
   margin: 0 auto;
   padding: 1rem 16px;
   display: block; /* Gereksiz grid düzeni kaldırıldı */
@@ -101,7 +101,7 @@ ul.nav {
 
 /* Görseller */
 img {
-  max-width: 100%;
+  max-width: 90%;
   height: auto;
   display: block;
 }
@@ -306,5 +306,69 @@ img {
 
   .nav-box .hamburger {
     display: block; /* Hamburger simgesi görünür */
+  }
+}
+
+/* "Programs" kısmı */
+
+#programs .grid-3 {
+  display: grid;
+  gap: 24px;
+  grid-template-columns: repeat(3, 1fr); /* Satırda en fazla 3 kart */
+}
+
+#programs .card {
+  padding: 16px;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  background: #fff;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+#programs .card h4 {
+  font-size: 1.2rem;
+  font-weight: bold;
+  margin-bottom: 4px;
+  margin-top: 4px;
+}
+
+#programs .card p {
+  color: var(--muted);
+  font-size: 14px;
+}
+
+#programs .card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+#programs .card i {
+  display: inline-block;
+  font-size: 2rem;
+  color: #fff; /* İkonlar beyaz */
+  padding: 12px;
+  border-radius: 20%; /* Yuvarlak arka plan */
+  margin-bottom: 4px;
+}
+
+#programs .card:nth-child(1) i, /* İlkokul Matematik */
+#programs .card:nth-child(3) i, /* Ortaokul Matematik */
+#programs .card:nth-child(5) i { /* LGS Matematik */
+  background: linear-gradient(135deg, #FFD700, #1E90FF); /* Sarı ve mavi */
+}
+
+#programs .card:nth-child(2) i, /* İlkokul Fen */
+#programs .card:nth-child(4) i { /* Ortaokul Fen */
+  background: linear-gradient(135deg, #7C3AED, #3B82F6); /* Mor ve mavi */
+}
+
+#programs .card:nth-child(6) i { /* Matematik Olimpiyatları */
+  background: linear-gradient(135deg, #3B82F6, #7C3AED); /* Mavi ve mor */
+}
+
+@media (max-width: 770px) {
+  #programs .grid-3 {
+    grid-template-columns: 1fr; /* Satırda sadece bir kart */
   }
 }
