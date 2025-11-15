@@ -84,7 +84,7 @@ ul.nav {
 
 /* Hero */
 .hero {
-  padding: 6rem 0;
+  padding: 0;
   display: grid;
   grid-template-columns: 1fr;
   gap: 24px;
@@ -189,6 +189,8 @@ img {
 
 /* "Biz Kimiz" kısmı */
 
+
+
 #about .left {
   display: flex;
   flex-direction: column;
@@ -242,7 +244,7 @@ img {
 
 #about .right {
   /* Sağdaki büyük kart */
-  align-self: start;
+  align-self: center;
   padding: 16px;
   border: 1px solid rgba(0, 0, 0, 0.1);
   border-radius: 8px;
@@ -378,6 +380,70 @@ img {
   }
 }
 
+/* "Advantages" kısmı */
+
+#advantages .grid-3 {
+  display: grid;
+  gap: 24px;
+  grid-template-columns: repeat(3, 1fr); /* Satırda en fazla 3 kart */
+}
+
+#advantages .card {
+  padding: 16px;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  background: #fff;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+#advantages .card h4 {
+  font-size: 1.2rem;
+  font-weight: bold;
+  margin-bottom: 4px;
+  margin-top: 4px;
+}
+
+#advantages .card p {
+  color: var(--muted);
+  font-size: 14px;
+}
+
+#advantages .card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+#advantages .card i {
+  display: inline-block;
+  font-size: 2rem;
+  color: #fff; /* İkonlar beyaz */
+  padding: 12px;
+  border-radius: 20%; /* Yuvarlak arka plan */
+  margin-bottom: 4px;
+}
+
+#advantages .card:nth-child(1) i, /* Yeni Arkadaşlıklar */
+#advantages .card:nth-child(3) i { /* Uzman Kadro */
+  background: linear-gradient(135deg, #FFD700, #1E90FF); /* Sarı ve mavi */
+}
+
+#advantages .card:nth-child(2) i, /* Rahat Giriş */
+#advantages .card:nth-child(4) i { /* Profesyonel Müfredat */
+  background: linear-gradient(135deg, #7C3AED, #3B82F6); /* Mor ve mavi */
+}
+
+#advantages .card:nth-child(5) i, /* Planlı Program */
+#advantages .card:nth-child(6) i { /* Şeffaf ve Güvenli */
+  background: linear-gradient(135deg, #3B82F6, #7C3AED); /* Mavi ve mor */
+}
+
+@media (max-width: 770px) {
+  #advantages .grid-3 {
+    grid-template-columns: 1fr; /* Satırda sadece bir kart */
+  }
+}
+
 .card {
   padding: 16px;
   border: 1px solid rgba(0, 0, 0, 0.1);
@@ -390,4 +456,17 @@ img {
 .card:hover {
   transform: translateY(-2px);
   box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+section h2 {
+  font-weight: bold;
+  margin-top: 24px; /* Üstte daha fazla boşluk */
+  margin-bottom: 2.5rem; /* Altta biraz boşluk */
+  font-family: poppins, ui-sans-serif, system-ui;
+  font-size: 36px;
+}
+
+section {
+  margin-bottom: 6rem;
+  margin-top: 6rem;
 }
