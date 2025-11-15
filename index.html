@@ -271,9 +271,9 @@
         <div class="container" style="text-align:center">
           <h2 id="trial-title" style="margin-bottom:8px">Deneme Dersine Katılın</h2>
           <p class="muted" style="max-width:60ch;margin:0 auto 12px">e-Pusula’daki eğitimi yakından görmek için ücretsiz deneme dersine katılın. Hemen başvurun ya da bizi arayın.</p>
-          <div style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-top:8px">
-            <a href="#contact" class="btn btn-hero">Başvuru Formu</a>
-            <a href="tel:+905518420888" class="btn btn-outline">📞 Hemen Ara</a>
+          <div class="trail-buttons" style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-top:8px">
+            <a href="#contact" class="btn btn-hero button-primary">Başvuru Formu</a>
+            <a href="tel:+905518420888" class="btn btn-outline button-primary"><i class="fa-solid fa-phone-volume"></i> Hemen Ara</a>
           </div>
           <p class="muted" style="font-size:12px;margin-top:8px">İlk deneme dersi tamamen ücretsizdir.</p>
         </div>
@@ -281,28 +281,28 @@
   
       <!-- Contact / CTA -->
       <section id="contact" aria-labelledby="contact-title" class="section">
-        <div class="container" style="display:grid;grid-template-columns:1fr;gap:18px">
+        <div class="container">
           <div>
             <h2 id="contact-title">Gelin beraber istişare edelim</h2>
             <p class="muted">Kayıt ve detaylar için formu doldurun; ekibimiz en kısa sürede sizinle iletişime geçsin.</p>
   
-            <div class="card" style="background:linear-gradient(90deg,#6d28d9,#4f46e5);color:white;margin-top:12px">
+            <div class="card" style="background:linear-gradient(90deg,#6d28d9,#4f46e5);color:white;margin-top:12px; padding:1.5rem">
               <p style="font-weight:700;margin:0">Telefon:</p>
               <p style="margin:4px 0 8px 0">+90 551 842 0888</p>
               <p style="font-weight:700;margin:0">E-posta:</p>
               <p style="margin:4px 0 8px 0">epusula.akademi@gmail.com</p>
-              <div style="display:flex;gap:8px;margin-top:8px;flex-wrap:wrap">
-                <a href="tel:+905518420888" class="btn btn-hero">📞 Hemen Ara</a>
-                <a href="https://wa.me/905518420888" target="_blank" rel="noreferrer" class="btn btn-outline">WhatsApp</a>
+              <div class="contact-button" style="display:flex;gap:8px;margin-top:8px;flex-wrap:wrap">
+                <a href="tel:+905518420888" class="btn btn-hero button-primary"><i class="fa-solid fa-phone-volume"></i> Hemen Ara</a>
+                <a href="https://wa.me/905518420888" target="_blank" rel="noreferrer" class="btn btn-outline button-primary">WhatsApp</a>
               </div>
             </div>
           </div>
   
-          <div class="card">
+          <div class="card" style="max-height: 150px;">
             <h3>Başvuru Formu</h3>
             <p class="muted">Google Form üzerinden hızlı başvuru yapın.</p>
             <div style="text-align:center;margin-top:12px">
-              <a href="https://forms.gle/o2jsCjgq6iahDkEj6" target="_blank" rel="noreferrer" class="btn btn-hero">Google Formu Aç</a>
+              <a href="https://forms.gle/o2jsCjgq6iahDkEj6" target="_blank" rel="noreferrer" class="btn btn-hero last-b button-primary">Google Formu Aç</a>
             </div>
           </div>
         </div>
@@ -311,7 +311,10 @@
   
     <footer>
       <div class="container" style="display:flex;align-items:center;justify-content:space-between;gap:18px;flex-wrap:wrap">
-        <div class="logo">e-Pusula</div>
+        <div style="display: flex; align-items: center; gap: 8px;" class="logo">
+          <img src="assets/img/logo.png" alt="" style="width: 2rem;">
+          <span style="color: #000;">e-Pusula</span>
+        </div>
         <div style="font-size:0.95rem" class="muted">© <span id="year"></span> e-Pusula Akademi. Tüm hakları saklıdır.</div>
         <div style="display:flex;gap:12px">
           <a class="story-link" href="tel:+905518420888">+90 551 842 0888</a>

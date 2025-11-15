@@ -142,6 +142,7 @@ img {
   transition: all 0.3s ease;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
   text-decoration: none;
+  margin-top: 1rem;
 }
 
 /* Hover State */
@@ -167,16 +168,20 @@ img {
   box-shadow: 0 4px 8px rgba(91, 27, 154, 0.4), 0 2px 4px rgba(68, 35, 186, 0.3); /* Buton renkleriyle uyumlu gölge eklendi */
 }
 
-.hero .button-primary:not(:first-child) {
+.hero .button-primary:not(:first-child), .trail-buttons .button-primary:not(:first-child), .contact-button .button-primary:not(:first-child){
   /* Diğer butonlar şeffaf yapıldı ve yazı siyah */
   background: transparent;
   color: #000;
 }
 
-.hero .button-primary:not(:first-child):hover {
+.hero .button-primary:not(:first-child):hover, .trail-buttons .button-primary:not(:first-child):hover, .contact-button .button-primary:not(:first-child):hover {
   /* Hover durumunda ilk butonun rengi gibi yapıldı */
   background: linear-gradient(to bottom, #5b1b9a, #4423ba);
   color: #FFFFFF;
+}
+
+.contact-button .button-primary:not(:first-child){
+  background-color: #f8c83a;
 }
 
 /* Responsive Design */
@@ -563,4 +568,25 @@ section {
 .muted 
 {
   color: var(--muted);
+}
+
+
+/* contact section */
+
+#contact .container {
+  display: grid;
+  grid-template-columns: 1fr 1fr; /* Varsayılan olarak iki sütun */
+  gap: 24px;
+}
+
+@media (max-width: 770px) {
+  #contact .container {
+    grid-template-columns: 1fr; /* 770px altı için tek sütun */
+  }
+}
+
+
+.last-b {
+  background: linear-gradient(135deg, #FFD700, #1E90FF);
+
 }
