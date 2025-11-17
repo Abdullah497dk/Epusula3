@@ -1,139 +1,114 @@
-@import url('https://fonts.googleapis.com/css2?family=BBH+Sans+Hegarty&display=swap');
 
-/* Genel ayarlar */
+/* ========== GENEL AYARLAR ========== */
 :root {
-  --bg: #ffffff; /* Beyaz arka plan */
-  --fg: #020817; /* Siyah yazı rengi */
-  --muted: #6b7280; /* Daha açık gri ton */
-  --primary: #7c3aed; /* Mor */
+  --bg: #ffffff;
+  --fg: #020817;
+  --muted: #6b7280;
+  --primary: #7c3aed;
+  --border: rgba(0, 0, 0, 0.1);
+  --shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  --shadow-hover: 0 6px 12px rgba(0, 0, 0, 0.15);
 }
 
-html, body {
+* {
   margin: 0;
   padding: 0;
-  font-family: Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
   background: var(--bg);
   color: var(--fg);
+  line-height: 1.6;
 }
 
-/* Konteyner */
-.container {
-  max-width: 1300px;
-  margin: 0 auto;
-  padding: 1rem 16px;
-  display: block; /* Gereksiz grid düzeni kaldırıldı */
-}
-
-#system .container {
-  margin-right: auto;
-  margin-left: auto;
-}
-
-i {
-  color: var(--primary);
-}
-
-/* Header */
-header {
-  background: rgba(255, 255, 255, 0.85);
-  backdrop-filter: blur(6px);
-  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
-  position: sticky;
-  top: 0;
-  z-index: 30;
-}
-
-header .logo img {
-  max-width: 36px; /* Logo boyutu 36x36 olarak ayarlandı */
-  height: 36px;
-}
-
-header .logo span {
-  font-size: 1.2rem; 
-  font-weight: bold;
-}
-
-nav {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-}
-
-.nav-box{
-  padding: 1rem 2rem;
-}
-
-.logo {
-  font-weight: bold;
-  color: var(--primary);
-}
-
-ul.nav {
-  display: flex;
-  gap: 1.5rem; /* Menü öğeleri arasındaki boşluk azaltıldı */
-  list-style: none;
-  padding: 0;
-  margin: 0;
-}
-
-.story-link {
-  color: var(--fg);
-  text-decoration: none;
-  font-size: 14px;
-}
-
-/* Hero */
-.hero {
-  padding: 0;
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 24px;
-}
-
-.hero h1 {
-  font-size: 60px;
-  font-weight: 900;
-  line-height: 1.05;
-  word-break: break-word;
-  font-family: Poppins, ui-sans-serif, system-ui;
-  margin: 0;
-  max-width: 475px; /* Genişlik sınırı eklendi */
-}
-
-.hero p.muted {
-  color: var(--muted);
-}
-
-/* Görseller */
 img {
-  max-width: 90%;
+  max-width: 100%;
   height: auto;
   display: block;
 }
 
-.hero img {
-  border-radius: 12px;
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Daha belirgin gölge eklendi */
+a {
+  text-decoration: none;
+  color: inherit;
 }
 
-/* Responsive */
-@media (min-width: 768px) {
-  .hero {
-    grid-template-columns: 1fr 1fr;
-  }
-  .md-show {
-    display: block;
-  }
-  .md-hide {
-    display: none;
-  }
+ul {
+  list-style: none;
 }
 
+/* ========== LAYOUT ========== */
+.container {
+  max-width: 1300px;
+  margin: 0 auto;
+  padding: 1rem 16px;
+}
 
-/* Basic Button Styles */
+.section {
+  margin: 6rem 0;
+}
+
+.grid-2 {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 24px;
+}
+
+.grid-3 {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+
+/* ========== TYPOGRAPHY ========== */
+h1 {
+  font-size: 60px;
+  font-weight: 900;
+  line-height: 1.05;
+  font-family: Poppins, sans-serif;
+  max-width: 475px;
+}
+
+h2 {
+  font-size: 36px;
+  font-weight: bold;
+  font-family: Poppins, sans-serif;
+  margin-bottom: 2.5rem;
+  text-align: center;
+}
+
+h3, h4 {
+  font-weight: 700;
+}
+
+.muted {
+  color: var(--muted);
+}
+
+/* ========== COMPONENTS ========== */
+.card {
+  padding: 16px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: #fff;
+  box-shadow: var(--shadow);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.card:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-hover);
+}
+
 .button-primary {
-  background: linear-gradient(to bottom, #5b1b9a, #4423ba); /* Gradient Background */
-  color: #FFFFFF;
+  display: inline-block;
+  background: linear-gradient(to bottom, #5b1b9a, #4423ba);
+  color: #fff;
   padding: 12px 24px;
   border: none;
   border-radius: 8px;
@@ -141,135 +116,64 @@ img {
   cursor: pointer;
   transition: all 0.3s ease;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
-  text-decoration: none;
   margin-top: 1rem;
 }
 
-/* Hover State */
 .button-primary:hover {
-  background: linear-gradient(to bottom, #885EBA, #B369FF); /* Adjusted hover gradient */
-  color: #FFFFFF;
+  background: linear-gradient(to bottom, #885EBA, #B369FF);
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
   transform: translateY(-2px);
 }
 
-/* Active (Pressed) State */
 .button-primary:active {
   background: linear-gradient(to bottom, #774499, #9966CC);
   transform: translateY(0);
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
 }
 
-/* Hero Button Styles */
-.hero .button-primary:first-child {
-  /* İlk buton renkli bırakıldı */
-  background: linear-gradient(to bottom, #5b1b9a, #4423ba);
-  color: #FFFFFF;
-  box-shadow: 0 4px 8px rgba(91, 27, 154, 0.4), 0 2px 4px rgba(68, 35, 186, 0.3); /* Buton renkleriyle uyumlu gölge eklendi */
-}
-
-.hero .button-primary:not(:first-child), .trail-buttons .button-primary:not(:first-child), .contact-button .button-primary:not(:first-child){
-  /* Diğer butonlar şeffaf yapıldı ve yazı siyah */
+.btn-outline {
   background: transparent;
   color: #000;
 }
 
-.hero .button-primary:not(:first-child):hover, .trail-buttons .button-primary:not(:first-child):hover, .contact-button .button-primary:not(:first-child):hover {
-  /* Hover durumunda ilk butonun rengi gibi yapıldı */
+.btn-outline:hover {
   background: linear-gradient(to bottom, #5b1b9a, #4423ba);
-  color: #FFFFFF;
+  color: #fff;
 }
 
-.contact-button .button-primary:not(:first-child){
-  background-color: #f8c83a;
-}
-
-/* Responsive Design */
-@media (max-width: 768px) {
-  .button-primary {
-    padding: 10px 20px;
-    font-size: 14px;
-  }
-}
-
-/* "Biz Kimiz" kısmı */
-
-#about .container {
-  display: grid;
-  grid-template-columns: 1fr 1fr; /* Varsayılan olarak iki sütun */
-  gap: 24px;
-}
-
-@media (max-width: 770px) {
-  #about .container {
-    grid-template-columns: 1fr; /* 770px altı için tek sütun */
-  }
-}
-
-#about .left {
-  display: flex;
-  flex-direction: column;
-  gap: 16px;
-}
-
-#about .left p {
-  /* İlk yazı için stil */
-  color: var(--muted);
-  margin: 4px 0;
-  font-size: 16px;
-  max-width: 50ch;
-}
-
-#about .badges {
-  display: grid;
-  gap: 12px;
-  grid-template-columns: repeat(2, minmax(0, 1fr)); /* Varsayılan olarak 2 sütun */
-}
-
-@media (min-width: 1024px) {
-  #about .badges {
-    grid-template-columns: repeat(3, minmax(0, 1fr)); /* 1024px ve üzeri için 3 sütun */
-  }
-}
-
-@media (max-width: 640px) {
-  #about .badges {
-    grid-template-columns: 1fr; /* 640px altı için tek sütun */
-  }
-}
-
-#about .badges .card {
-  /* Kartlar için buton tasarımı */
-  display: flex;
+.icon-box {
+  display: inline-flex;
   align-items: center;
-  gap: 8px;
-  padding: 12px;
-  border: 1px solid rgba(0, 0, 0, 0.1);
-  border-radius: 8px;
-  background: #fff;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
-  cursor: pointer;
+  justify-content: center;
+  font-size: 1.5rem;
+  color: #fff;
+  border-radius: 20%;
+  margin-bottom: 4px;
+  width: 2.5rem;
+  height: 2.5rem;
 }
 
-#about .badges .card:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+/* Icon Gradients */
+.gradient-yellow-blue {
+  background: linear-gradient(135deg, #FFD700, #1E90FF);
 }
 
-#about .right {
-  /* Sağdaki büyük kart */
-  align-self: center;
-  padding: 16px;
-  border: 1px solid rgba(0, 0, 0, 0.1);
-  border-radius: 8px;
-  background: #fff;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+.gradient-purple-blue {
+  background: linear-gradient(135deg, #7C3AED, #3B82F6);
 }
 
-#about .right p {
-  color: var(--muted);
-  font-size: 14px;
+.gradient-blue-purple {
+  background: linear-gradient(135deg, #3B82F6, #7C3AED);
+}
+
+/* ========== HEADER ========== */
+header {
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(6px);
+  border-bottom: 1px solid var(--border);
+  position: sticky;
+  top: 0;
+  z-index: 30;
 }
 
 .nav-box {
@@ -279,237 +183,72 @@ img {
   padding: 1rem 2rem;
 }
 
-.nav-box .hamburger {
-  display: none;
-  cursor: pointer;
-  font-size: 24px;
-  color: var(--fg);
-}
-
-.nav-box .hamburger i {
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-weight: bold;
   color: var(--primary);
 }
 
-.nav-box .nav {
+.logo img {
+  width: 36px;
+  height: 36px;
+  border-radius: 5px;
+}
+
+.hamburger {
+  display: none;
+  cursor: pointer;
+  font-size: 24px;
+}
+
+.nav {
   display: flex;
   gap: 1.5rem;
+  align-items: center;
 }
 
-.nav-box .nav li {
-  list-style: none;
-}
-
-.nav-box .nav a {
-  text-decoration: none;
+.nav a {
+  font-size: 14px;
   color: var(--fg);
-  font-size: 14px;
 }
 
-@media (max-width: 768px) {
-  .nav-box .nav {
-    display: none; /* Menü başlangıçta gizlenir */
-    flex-direction: column;
-    background: var(--bg);
-    position: absolute;
-    top: 0;
-    right: -100%; /* Menü başlangıçta görünmez */
-    width: 75%; /* Menü genişliği */
-    height: 100vh; /* Tam ekran yüksekliği */
-    box-shadow: -4px 0 8px rgba(0, 0, 0, 0.1);
-    z-index: 100;
-    transition: right 0.3s ease, opacity 0.3s ease; /* Sağdan kayma ve opaklık animasyonu */
-    opacity: 0; /* Görünmezlik başlangıç durumu */
-  }
-
-  .nav-box .nav.active {
-    right: 0; /* Menü görünür hale gelir */
-    opacity: 1; /* Görünürlük */
-  }
-
-  .nav-box .hamburger {
-    display: block; /* Hamburger simgesi görünür */
-  }
+/* ========== HERO ========== */
+.hero .grid-2 {
+  align-items: center;
 }
 
-/* "Programs" kısmı */
+.hero img {
+  border-radius: 12px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
 
-#programs .grid-3 {
+.hero-buttons {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin-top: 8px;
+}
+
+.hero-title-highlight {
+  color: var(--primary);
+  border-bottom: 4px solid rgba(124, 58, 237, 0.3);
+  padding-bottom: 4px;
+}
+
+/* ========== SECTIONS ========== */
+#about .badges {
   display: grid;
-  gap: 24px;
-  grid-template-columns: repeat(3, 1fr); /* Satırda en fazla 3 kart */
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12px;
 }
 
-#programs .card {
-  padding: 16px;
-  border: 1px solid rgba(0, 0, 0, 0.1);
-  border-radius: 8px;
-  background: #fff;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
-}
-
-#programs .card h4 {
-  font-size: 1.2rem;
-  font-weight: bold;
-  margin-bottom: 4px;
-  margin-top: 4px;
-}
-
-#programs .card p {
-  color: var(--muted);
-  font-size: 14px;
-}
-
-#programs .card:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
-}
-
-#programs .card i {
-  display: inline-block;
-  font-size: 2rem;
-  color: #fff; /* İkonlar beyaz */
-  padding: 12px;
-  border-radius: 20%; /* Yuvarlak arka plan */
-  margin-bottom: 4px;
-}
-
-#programs .card:nth-child(1) i, /* İlkokul Matematik */
-#programs .card:nth-child(3) i, /* Ortaokul Matematik */
-#programs .card:nth-child(5) i { /* LGS Matematik */
-  background: linear-gradient(135deg, #FFD700, #1E90FF); /* Sarı ve mavi */
-}
-
-#programs .card:nth-child(2) i, /* İlkokul Fen */
-#programs .card:nth-child(4) i { /* Ortaokul Fen */
-  background: linear-gradient(135deg, #7C3AED, #3B82F6); /* Mor ve mavi */
-}
-
-#programs .card:nth-child(6) i { /* Matematik Olimpiyatları*/
-  background: linear-gradient(135deg, #3B82F6, #7C3AED); /* Mavi ve mor */
-}
-
-@media (max-width: 770px) {
-  #programs .grid-3 {
-    grid-template-columns: 1fr; /* Satırda sadece bir kart */
-  }
-}
-
-/* "Advantages" kısmı */
-
-#advantages .grid-3 {
-  display: grid;
-  gap: 24px;
-  grid-template-columns: repeat(3, 1fr); /* Satırda en fazla 3 kart */
-}
-
-#advantages .card {
-  padding: 16px;
-  border: 1px solid rgba(0, 0, 0, 0.1);
-  border-radius: 8px;
-  background: #fff;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
-}
-
-#advantages .card h4 {
-  font-size: 1.2rem;
-  font-weight: bold;
-  margin-bottom: 4px;
-  margin-top: 4px;
-}
-
-#advantages .card p {
-  color: var(--muted);
-  font-size: 14px;
-}
-
-#advantages .card:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
-}
-
-#advantages .card i {
-  display: inline-block;
-  font-size: 2rem;
-  color: #fff; /* İkonlar beyaz */
-  padding: 12px;
-  border-radius: 20%; /* Yuvarlak arka plan */
-  margin-bottom: 4px;
-}
-
-#advantages .card:nth-child(1) i, /* Yeni Arkadaşlıklar */
-#advantages .card:nth-child(3) i { /* Uzman Kadro */
-  background: linear-gradient(135deg, #FFD700, #1E90FF); /* Sarı ve mavi */
-}
-
-#advantages .card:nth-child(2) i, /* Rahat Giriş */
-#advantages .card:nth-child(4) i { /* Profesyonel Müfredat */
-  background: linear-gradient(135deg, #7C3AED, #3B82F6); /* Mor ve mavi */
-}
-
-#advantages .card:nth-child(5) i, /* Planlı Program */
-#advantages .card:nth-child(6) i { /* Şeffaf ve Güvenli */
-  background: linear-gradient(135deg, #3B82F6, #7C3AED); /* Mavi ve mor */
-}
-
-@media (max-width: 770px) {
-  #advantages .grid-3 {
-    grid-template-columns: 1fr; /* Satırda sadece bir kart */
-  }
-}
-
-#programs .card i,
-#advantages .card i {
-  font-size: 1.5rem; /* İkon boyutu küçültüldü */
-  padding: 8px; /* İç boşluk azaltıldı */
-}
-
-.card {
-  padding: 16px;
-  border: 1px solid rgba(0, 0, 0, 0.1);
-  border-radius: 8px;
-  background: #fff;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
-}
-
-.card:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
-}
-
-section h2 {
-  font-weight: bold;
-  margin-top: 24px; /* Üstte daha fazla boşluk */
-  margin-bottom: 2.5rem; /* Altta biraz boşluk */
-  font-family: poppins, ui-sans-serif, system-ui;
-  font-size: 36px;
-}
-
-section {
-  margin-bottom: 6rem;
-  margin-top: 6rem;
-}
-
-.testimonials-carousel .card {
-  flex: 0 0 calc(33.333% - 11px); /* 3 kart yan yana */
-  min-width: 280px;
-  scroll-snap-align: start;
-}
-
-/* Tablet */
-@media (max-width: 1024px) {
-  .testimonials-carousel .card {
-    flex: 0 0 calc(50% - 8px); /* 2 kart */
-  }
-}
-
-/* Mobil */
-@media (max-width: 768px) {
-  .testimonials-carousel .card {
-    flex: 0 0 85%; /* 1 kart */
-  }
+#about .badges .card {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
 }
 
 .testimonials-wrapper {
@@ -525,19 +264,21 @@ section {
   scroll-behavior: smooth;
   gap: 16px;
   padding: 8px 0;
-  min-width: 100%; /* Minimum genişlik eklendi */
-}
-
-.testimonials-carousel .card {
-  flex: 0 0 400px; /* Kartların sabit genişliği */
+  scroll-snap-type: x mandatory;
 }
 
 .testimonials-carousel::-webkit-scrollbar {
-  display: none; /* Kaydırma çubuğunu gizle */
+  display: none;
+}
+
+.testimonials-carousel .card {
+  flex: 0 0 calc(33.333% - 11px);
+  min-width: 280px;
+  scroll-snap-align: start;
 }
 
 .arrow {
-  /* background: var(--primary); */
+  background: var(--primary);
   color: #fff;
   border: none;
   border-radius: 50%;
@@ -547,8 +288,9 @@ section {
   align-items: center;
   justify-content: center;
   cursor: pointer;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-  transition: background 0.3s ease;
+  box-shadow: var(--shadow);
+  transition: all 0.3s ease;
+  position: absolute;
 }
 
 .arrow:hover {
@@ -556,37 +298,112 @@ section {
 }
 
 .left-arrow {
-  position: absolute;
   left: -20px;
 }
 
 .right-arrow {
-  position: absolute;
   right: -20px;
 }
 
-.muted 
-{
-  color: var(--muted);
+.contact-gradient {
+  background: linear-gradient(90deg, #6d28d9, #4f46e5);
+  color: white;
+  padding: 1.5rem;
 }
 
-
-/* contact section */
-
-#contact .container {
-  display: grid;
-  grid-template-columns: 1fr 1fr; /* Varsayılan olarak iki sütun */
-  gap: 24px;
+.contact-yellow {
+  background-color: #f8c83a;
 }
 
-@media (max-width: 770px) {
-  #contact .container {
-    grid-template-columns: 1fr; /* 770px altı için tek sütun */
+.avatar {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+/* ========== FOOTER ========== */
+footer {
+  background: #f9fafb;
+  padding: 2rem 0;
+  border-top: 1px solid var(--border);
+}
+
+footer .container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 18px;
+  flex-wrap: wrap;
+}
+
+/* ========== RESPONSIVE ========== */
+@media (max-width: 1024px) {
+  #about .badges {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .testimonials-carousel .card {
+    flex: 0 0 calc(50% - 8px);
   }
 }
 
+@media (max-width: 768px) {
+  h1 {
+    font-size: 40px;
+  }
 
-.last-b {
-  background: linear-gradient(135deg, #FFD700, #1E90FF);
+  h2 {
+    font-size: 28px;
+  }
 
+  .grid-2, .grid-3 {
+    grid-template-columns: 1fr;
+  }
+
+  .hamburger {
+    display: block;
+  }
+
+  .nav {
+    display: none;
+    flex-direction: column;
+    position: fixed;
+    top: 0;
+    right: -100%;
+    width: 75%;
+    height: 100vh;
+    background: var(--bg);
+    box-shadow: -4px 0 8px rgba(0, 0, 0, 0.1);
+    z-index: 100;
+    padding: 2rem;
+    transition: right 0.3s ease;
+  }
+
+  .nav.active {
+    right: 0;
+  }
+
+  #about .badges {
+    grid-template-columns: 1fr;
+  }
+
+  .testimonials-carousel .card {
+    flex: 0 0 85%;
+  }
+
+  .button-primary {
+    padding: 10px 20px;
+    font-size: 14px;
+  }
+
+  .arrow {
+    display: none;
+  }
+}
+
+@media (max-width: 640px) {
+  #about .badges {
+    grid-template-columns: 1fr;
+  }
 }
