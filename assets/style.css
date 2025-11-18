@@ -222,6 +222,8 @@ header {
   color: var(--fg);
 }
 
+
+
 /* ========== HERO ========== */
 .hero .grid-2 {
   align-items: center;
@@ -395,10 +397,11 @@ footer .container {
 
   .nav.active {
     right: 0;
+    display: flex;
   }
 
   #about .badges {
-    grid-template-columns: 1fr;
+    grid-template-columns: repeat(2, 1fr);
   }
 
   .testimonials-carousel .card {
