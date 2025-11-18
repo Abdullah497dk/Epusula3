@@ -105,6 +105,14 @@ h3, h4 {
   box-shadow: var(--shadow-hover);
 }
 
+.sign-up-card {
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
 .button-primary {
   display: inline-block;
   background: linear-gradient(to bottom, #5b1b9a, #4423ba);
@@ -188,7 +196,7 @@ header {
   align-items: center;
   gap: 8px;
   font-weight: bold;
-  color: var(--primary);
+  color: var(--fg);
 }
 
 .logo img {
@@ -249,6 +257,11 @@ header {
   align-items: center;
   gap: 8px;
   cursor: pointer;
+}
+
+#about i, #system i {
+  font-size: 24px;
+  color: var(--primary);
 }
 
 .testimonials-wrapper {
