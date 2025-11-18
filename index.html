@@ -316,7 +316,8 @@
       </div>
     </div>
   </footer>
-
+  
+  <div class="nav-overlay" onclick="toggleMenu()"></div>
   <script>
     document.getElementById('year').textContent = new Date().getFullYear();
 
@@ -371,6 +372,40 @@
       window.addEventListener('resize', updateArrows);
       updateArrows();
     }
+
+    function toggleMenu() {
+  const nav = document.querySelector('.nav');
+  const hamburger = document.querySelector('.hamburger');
+  const overlay = document.querySelector('.nav-overlay');
+  
+  nav.classList.toggle('active');
+  hamburger.classList.toggle('active');
+  
+  if (overlay) {
+    overlay.classList.toggle('active');
+  }
+  
+  // Body scroll'u engelle/aç
+  document.body.style.overflow = nav.classList.contains('active') ? 'hidden' : '';
+}
+
+// Nav linklerine tıklanınca menüyü kapat
+document.querySelectorAll('.nav a').forEach(link => {
+  link.addEventListener('click', () => {
+    const nav = document.querySelector('.nav');
+    const hamburger = document.querySelector('.hamburger');
+    const overlay = document.querySelector('.nav-overlay');
+    
+    if (nav.classList.contains('active')) {
+      nav.classList.remove('active');
+      hamburger.classList.remove('active');
+      if (overlay) overlay.classList.remove('active');
+      document.body.style.overflow = '';
+    }
+  });
+});
   </script>
+
+
 </body>
 </html>
