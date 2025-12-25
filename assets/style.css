@@ -883,6 +883,11 @@ footer .container {
     font-size: 28px;
   }
 
+  .trial-title .handwriting {
+    display: block;
+    margin-bottom: 8px;
+  }
+
   .grid-2,
   .grid-3 {
     grid-template-columns: 1fr;
