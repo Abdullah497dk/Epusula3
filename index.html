@@ -355,6 +355,105 @@
           </div>
           <button class="arrow right-arrow">
             <i class="fa fa-chevron-right"></i>
+        </div>
+      </div>
+    </section>
+
+    <!-- Teachers -->
+    <section id="teachers" class="section">
+      <div class="container">
+        <h2>Eğitmenlerimiz</h2>
+        <div class="teachers-wrapper">
+          <button class="arrow teachers-left-arrow">
+            <i class="fa fa-chevron-left"></i>
+          </button>
+          <div class="teachers-carousel">
+            <!-- Furkan Çifçi -->
+            <div class="teacher-card">
+              <div class="teacher-photo">
+                <img src="assets/img/furkan-cifci.jpeg" alt="Furkan Çifçi">
+                <h4>Furkan Çifçi</h4>
+              </div>
+              <div class="teacher-info">
+                <ul>
+                  <li><i class="fa-solid fa-flag"></i> <strong>Milli Takım:</strong> Uluslararası Matematik
+                    Olimpiyatları (Kanguru)</li>
+                  <li><i class="fa-solid fa-medal"></i> <strong>Altın Madalya:</strong> Asya Matematik Olimpiyatları,
+                    Japonya</li>
+                  <li><i class="fa-solid fa-trophy"></i> <strong>Dünya 3.'lüğü:</strong> Dünya Matematik Yarışması,
+                    Tayland</li>
+                  <li><i class="fa-solid fa-graduation-cap"></i> <strong>Stajyer:</strong> Koç Üniversitesi</li>
+                </ul>
+              </div>
+            </div>
+
+            <!-- Placeholder Teacher 2 -->
+            <div class="teacher-card">
+              <div class="teacher-photo">
+                <img src="assets/img/avatar-1.jpg" alt="Eğitmen">
+                <h4>Yakında Eklenecek</h4>
+              </div>
+              <div class="teacher-info">
+                <ul>
+                  <li><i class="fa-solid fa-circle-info"></i> Bilgiler yakında eklenecek...</li>
+                </ul>
+              </div>
+            </div>
+
+            <!-- Placeholder Teacher 3 -->
+            <div class="teacher-card">
+              <div class="teacher-photo">
+                <img src="assets/img/avatar-2.jpg" alt="Eğitmen">
+                <h4>Yakında Eklenecek</h4>
+              </div>
+              <div class="teacher-info">
+                <ul>
+                  <li><i class="fa-solid fa-circle-info"></i> Bilgiler yakında eklenecek...</li>
+                </ul>
+              </div>
+            </div>
+
+            <!-- Placeholder Teacher 4 -->
+            <div class="teacher-card">
+              <div class="teacher-photo">
+                <img src="assets/img/avatar-3.jpg" alt="Eğitmen">
+                <h4>Yakında Eklenecek</h4>
+              </div>
+              <div class="teacher-info">
+                <ul>
+                  <li><i class="fa-solid fa-circle-info"></i> Bilgiler yakında eklenecek...</li>
+                </ul>
+              </div>
+            </div>
+
+            <!-- Placeholder Teacher 5 -->
+            <div class="teacher-card">
+              <div class="teacher-photo">
+                <img src="assets/img/avatar-1.jpg" alt="Eğitmen">
+                <h4>Yakında Eklenecek</h4>
+              </div>
+              <div class="teacher-info">
+                <ul>
+                  <li><i class="fa-solid fa-circle-info"></i> Bilgiler yakında eklenecek...</li>
+                </ul>
+              </div>
+            </div>
+
+            <!-- Placeholder Teacher 6 -->
+            <div class="teacher-card">
+              <div class="teacher-photo">
+                <img src="assets/img/avatar-2.jpg" alt="Eğitmen">
+                <h4>Yakında Eklenecek</h4>
+              </div>
+              <div class="teacher-info">
+                <ul>
+                  <li><i class="fa-solid fa-circle-info"></i> Bilgiler yakında eklenecek...</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <button class="arrow teachers-right-arrow">
+            <i class="fa fa-chevron-right"></i>
           </button>
         </div>
       </div>
@@ -476,6 +575,47 @@
       carousel.addEventListener('scroll', updateArrows);
       window.addEventListener('resize', updateArrows);
       updateArrows();
+    }
+
+    // Teachers Carousel
+    const teachersCarousel = document.querySelector('.teachers-carousel');
+    const teachersLeftArrow = document.querySelector('.teachers-left-arrow');
+    const teachersRightArrow = document.querySelector('.teachers-right-arrow');
+
+    if (teachersCarousel && teachersLeftArrow && teachersRightArrow) {
+      function getTeachersScrollAmount() {
+        const cardWidth = teachersCarousel.querySelector('.teacher-card').offsetWidth;
+        return cardWidth + 20;
+      }
+
+      teachersLeftArrow.addEventListener('click', () => {
+        teachersCarousel.scrollBy({
+          left: -getTeachersScrollAmount(),
+          behavior: 'smooth'
+        });
+      });
+
+      teachersRightArrow.addEventListener('click', () => {
+        teachersCarousel.scrollBy({
+          left: getTeachersScrollAmount(),
+          behavior: 'smooth'
+        });
+      });
+
+      function updateTeachersArrows() {
+        const scrollLeft = teachersCarousel.scrollLeft;
+        const maxScroll = teachersCarousel.scrollWidth - teachersCarousel.clientWidth;
+
+        teachersLeftArrow.style.opacity = scrollLeft <= 0 ? '0.5' : '1';
+        teachersLeftArrow.style.cursor = scrollLeft <= 0 ? 'default' : 'pointer';
+
+        teachersRightArrow.style.opacity = scrollLeft >= maxScroll - 1 ? '0.5' : '1';
+        teachersRightArrow.style.cursor = scrollLeft >= maxScroll - 1 ? 'default' : 'pointer';
+      }
+
+      teachersCarousel.addEventListener('scroll', updateTeachersArrows);
+      window.addEventListener('resize', updateTeachersArrows);
+      updateTeachersArrows();
     }
 
     function toggleMenu() {
