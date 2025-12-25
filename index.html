@@ -616,6 +616,40 @@
       teachersCarousel.addEventListener('scroll', updateTeachersArrows);
       window.addEventListener('resize', updateTeachersArrows);
       updateTeachersArrows();
+
+      // Auto-scroll teachers carousel
+      let teachersAutoScroll;
+
+      function startTeachersAutoScroll() {
+        teachersAutoScroll = setInterval(() => {
+          const maxScroll = teachersCarousel.scrollWidth - teachersCarousel.clientWidth;
+
+          if (teachersCarousel.scrollLeft >= maxScroll - 10) {
+            // If at the end, scroll back to start
+            teachersCarousel.scrollTo({
+              left: 0,
+              behavior: 'smooth'
+            });
+          } else {
+            // Scroll to next card
+            teachersCarousel.scrollBy({
+              left: getTeachersScrollAmount(),
+              behavior: 'smooth'
+            });
+          }
+        }, 4000); // Scroll every 4 seconds
+      }
+
+      function stopTeachersAutoScroll() {
+        clearInterval(teachersAutoScroll);
+      }
+
+      // Start auto-scroll
+      startTeachersAutoScroll();
+
+      // Pause on hover
+      teachersCarousel.addEventListener('mouseenter', stopTeachersAutoScroll);
+      teachersCarousel.addEventListener('mouseleave', startTeachersAutoScroll);
     }
 
     function toggleMenu() {
