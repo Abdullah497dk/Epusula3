@@ -463,7 +463,7 @@
               </div>
             </div>
 
-            <!-- Placeholder Teacher 6 -->
+            <!-- Placeholder Teacher 6 
             <div class="teacher-card">
               <div class="teacher-photo">
                 <img src="assets/img/avatar-2.jpg" alt="Eğitmen">
@@ -474,7 +474,7 @@
                   <li><i class="fa-solid fa-circle-info"></i> Bilgiler yakında eklenecek...</li>
                 </ul>
               </div>
-            </div>
+            </div>-->
           </div>
           <button class="arrow teachers-right-arrow">
             <i class="fa fa-chevron-right"></i>
@@ -661,19 +661,38 @@
               behavior: 'smooth'
             });
           }
-        }, 8000); // Scroll every 8 seconds
+        }, 5000); // Scroll every 5 seconds
       }
 
       function stopTeachersAutoScroll() {
         clearInterval(teachersAutoScroll);
       }
 
-      // Start auto-scroll
-      startTeachersAutoScroll();
+      // Start auto-scroll only when teachers section is visible
+      const teachersSection = document.getElementById('teachers');
+      let autoScrollStarted = false;
+
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting && !autoScrollStarted) {
+            // Wait 3 seconds after section is visible before starting auto-scroll
+            setTimeout(() => {
+              startTeachersAutoScroll();
+              autoScrollStarted = true;
+            }, 3000);
+          }
+        });
+      }, { threshold: 0.3 });
+
+      observer.observe(teachersSection);
 
       // Pause on hover
       teachersCarousel.addEventListener('mouseenter', stopTeachersAutoScroll);
-      teachersCarousel.addEventListener('mouseleave', startTeachersAutoScroll);
+      teachersCarousel.addEventListener('mouseleave', () => {
+        if (autoScrollStarted) {
+          startTeachersAutoScroll();
+        }
+      });
     }
 
     function toggleMenu() {
